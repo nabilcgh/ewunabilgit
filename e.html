@@ -1,0 +1,59 @@
+<html>
+<title>h</title>
+
+
+	<script>
+
+		function f1()
+			{
+				var a=new XMLHttpRequest();
+				
+				a.onreadystatechange=function()
+							{
+								if(a.readyState==4 && a.status==200  )
+									{
+										f2(a);
+									}
+								
+							}	
+				a.open("GET","as1.xml",true);
+				a.send();
+			}
+		function f2(x)
+			{
+				var y1,ca,ca1;
+
+				var y=x.responseXML;
+				
+				
+				document.write("ddf");
+					var a="";			
+				
+						ca=y.getElementsByTagName("student");
+					
+						for(i=0;i<ca.length;i++)
+							{
+								
+								a+="<br>"+ca[i].getElementsByTagName("course-name")[0].childNodes[0].nodeValue;
+							}
+
+					
+				//for(i=0;i<ca.length;i++)
+					{
+					
+						document.write(a);
+					}
+					
+
+			}
+	</script>
+
+<body>
+<form name="s1">
+course Name:<input type="text" name="s">
+<button onclick="f1()">Display</button>
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Cookies</title>
+</head>
+
+<body>
+<form name="form">
+<h4>Your Favorite Color:<input type="text" name="t1">
+</form>
+<button onclick="f()">Save</button>
+<script>
+function f()
+{
+document.form.t1.value;
+var x="color";
+var y=document.form.t1.value;
+var d=new Date();
+d.setTime(d.getTime()+24*60*60*1000);
+var e=d.toUTCString();
+document.cookie=x+"="+y+";expires="+e;
+alert("your favorite color has been set");
+}
+</script>
+<script>
+function cook()
+{
+x=document.cookie;
+var a="color=";
+var b;
+b=x.indexOf(a);
+b=b+a.length;
+//Matching ; after b: Position return in c indexOf
+//starting from b upto the position returned in c: substring
+alert(b);
+}
+</script>
+<button onclick="cook()">Get</button>
+
+
+</body>
+</html>
